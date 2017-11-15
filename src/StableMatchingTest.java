@@ -120,7 +120,7 @@ public class StableMatchingTest {
     {
         out.println("The result of this test run was:");
         out.println("marriages =");
-        out.println(Arrays.toString(mar));
+        out.println(Arrays.deepToString(mar));
     }
 
     int[][] deepCopy2D (int[][] arg)
