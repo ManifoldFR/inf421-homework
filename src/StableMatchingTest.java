@@ -40,7 +40,7 @@ public class StableMatchingTest {
 
     // The box must reply under a certain time limit (expressed in milliseconds).
 
-    public final static long TIMEOUT = 90000;
+    public final static long TIMEOUT = 30000;
 
     // Setting this flag causes us to abandon after the first failure.
 
@@ -525,7 +525,7 @@ public class StableMatchingTest {
 
         // Test suite for m = w = n
         int n;
-        /*
+
         // First, test at all sizes sequentially up to a certain size.
         for (n = 0; n <= SMALL; n++)
             test(unit(n), unit(n));
@@ -535,7 +535,7 @@ public class StableMatchingTest {
         // should be OK here; we are interested mainly in the performance data).
         for (n = 2 * SMALL; n <= LARGE; n *= 2)
             test(unit(n), unit(n));
-        */
+
         int[] nRange = new int[]{50, 500, 3000, 6000, 16000, 1000000, 10000000, 100000000, 800000000};
 
         int nBound;
