@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class StableMatching implements StableMatchingInterface {
 
@@ -18,7 +16,7 @@ public class StableMatching implements StableMatchingInterface {
             for(int l: menGroupCount) {
                 n += l;
             }
-            if (n==w) return backupAlgorithm(menGroupCount,womenGroupCount,menPrefs,womenPrefs);
+            if (n==w) return backupAlgorithm(womenGroupCount,menPrefs,womenPrefs);
         }
 
         // nextIndex[i][j] is true whenever the j-th group of women has rejected the men in group i
@@ -31,15 +29,16 @@ public class StableMatching implements StableMatchingInterface {
             }
         }
 
-        // current worst matchings
-        int[] worstMatch = new int[w];
+        // current matchings: match[j] contains a priority queue of the indices of the men married to women group j
+        PriorityQueue<Integer>[] match = new PriorityQueue[w];
         for(int j=0; j<w; j++) {
-            worstMatch[j] = -1;
+            match[j] = new PriorityQueue<>(m, Collections.reverseOrder());
         }
 
-        // number of single men; we initialise at the biggest number
-        int i = maxOfArray(menGroupCount);
-        int freeMen = menGroupCount[i];
+        LinkedList<Integer> celibs = new LinkedList<>();
+        for (int i = 0; i < m; i++) {
+            celibs.add(i);
+        }
 
         /*
         System.out.print("(");
@@ -50,29 +49,22 @@ public class StableMatching implements StableMatchingInterface {
         System.out.print(Arrays.toString(womenGroupCount));
         System.out.print(", ");
         */
+        int i;
+        int freeMen;
+
         // number of single women
         int freeWomen;
 
-        while (freeMen > 0) {
-            /*
-            System.out.print("seen=");
-            System.out.print(Arrays.toString(nextIndex));
-            System.out.print(", ");
-            */
-
-            // get the group of women preferred by men in group i that hasn't rejected them yet
-            // j is the number of this group
+        while (!celibs.isEmpty()) {
+            i = celibs.getFirst();
+            freeMen = menGroupCount[i];
+            // best women preferred by men i that haven't rejected them yet
             int j = menPrefs[i][nextIndex[i]];
-            /*
-            System.out.print("j=");
-            System.out.print(j);
-            System.out.print(", ");
-            */
+
+            int iIndex = womenPrefsRankings[j][i];
 
             // get the number of free women in group j
             freeWomen = womenGroupCount[j];
-            // get the number of free men left
-            freeMen = menGroupCount[i];
 
             int numToSwitch = minimum(freeMen,freeWomen);
 
@@ -86,98 +78,54 @@ public class StableMatching implements StableMatchingInterface {
 
             // now, if there are free women, set them up with as many of the free men in group i as possible
             if (freeWomen > 0) {
+                // add a matching if no men and women from i and j were married before
+                if (res[i][j] == 0) match[j].add(iIndex);
+
                 res[i][j] += numToSwitch;
 
-                // now we check if our new men from group i are the worst
-                int currentWorstMatch = worstMatch[j];
-                if (currentWorstMatch == -1) {
-                    worstMatch[j] = i;
-                } else if (womenPrefsRankings[j][i] > womenPrefsRankings[j][currentWorstMatch]) {
-                    worstMatch[j] = i;
-                }
                 menGroupCount[i] -= numToSwitch;
                 womenGroupCount[j] -= numToSwitch;
 
-                // System.out.print("), ");
-            } else {
-                // already engaged women have the priority over the singles
-                // find the least preferred group of men any woman in group j is currently engaged to
-                // rivalIndex is the position of this group in the group of women's preference list
-                /*
-                int rivalIndex = 0;
-                for(int k = m-1; k >= 0; k--) {
-                    if(res[womenPrefs[j][k]][j] > 0) {
-                        rivalIndex = k;
-                        break;
-                    }
+                if (menGroupCount[i] == 0) {
+                    celibs.poll();
                 }
-                */
-                int rival = worstMatch[j];
+            } else {
+                // find the worst group of men women in group j are engaged to
+                int rivalIndex = match[j].peek();
+                int rival = womenPrefs[j][rivalIndex];
 
-                // int rival = worstMatch[j];
-                int rivalIndex = womenPrefsRankings[j][rival];
-                /*
-                System.out.print("riv=");
-                System.out.print(rival);;
-                System.out.print(", rInd=");
-                System.out.print(rivalIndex);
-                System.out.print(", ");
-                */
-
-                // now test the rival group against our current contender:
-                // if its index is farther than i's index, then it is not optimal for the women
-                int iIndex = womenPrefsRankings[j][i];
+                // compare the rival group against i
                 if (rivalIndex > iIndex) {
-                /* if the rival group is not as good as our current one,
-                make as many ladies engaged to them as possible switch */
+                    // if the rival group is not as good as our current one, we make some women switch1
                     int occWomen = res[rival][j];
-
-                    /*
-                    System.out.print(occWomen);
-                    System.out.print(", ");
-                    */
-
-                    menGroupCount[rival] += minimum(freeMen,occWomen);
                     menGroupCount[i] -= minimum(freeMen,occWomen);
+                    if (menGroupCount[i] == 0) {
+                        celibs.poll();
+                    }
+                    if (res[i][j] == 0) {
+                        match[j].add(iIndex);
+                    }
 
                     res[rival][j] -= minimum(freeMen,occWomen);
-                    res[i][j] += minimum(freeMen,occWomen);
-
-                    // if all the men from the rival group have been kicked to the curb
-                    // then we have to find the new worst match
                     if (res[rival][j] == 0) {
-                        int indNewWorst = 0;
-                        for(int k = m-1; k >= 0; k--) {
-                            if(res[womenPrefs[j][k]][j] > 0) {
-                                indNewWorst = k;
-                                break;
-                            }
-                        }
-                        worstMatch[j] = womenPrefs[j][indNewWorst];
+                        match[j].poll();
                     }
+                    // if the rival wasn't single before... now it is
+                    if (menGroupCount[rival] == 0) {
+                        celibs.add(rival);
+                    }
+                    menGroupCount[rival] += minimum(freeMen,occWomen);
+
+                    res[i][j] += minimum(freeMen,occWomen);
                 } else { nextIndex[i]++; }
-                // System.out.print("),");
 
             }
-            // Preparing for next loop: Get the group of men with the most singles
-            i = maxOfArray(menGroupCount);
 
-            /*
-            System.out.print("(");
-            System.out.print(i);
-            System.out.print(", ");
-            System.out.print(Arrays.toString(menGroupCount));
-            System.out.print(", ");
-            System.out.print(Arrays.toString(womenGroupCount));
-            System.out.print(", ");
-            */
-
-            freeMen = menGroupCount[i];
         }
         return res;
     }
 
-    private int[][] backupAlgorithm(int[] menGroupCount, int[] womenGroupCount, int[][] menPrefs,int[][] womenPrefs) {
+    private int[][] backupAlgorithm(int[] womenGroupCount, int[][] menPrefs,int[][] womenPrefs) {
         int n = menPrefs.length;
         int[][] res = new int[n][n];
 
@@ -185,9 +133,9 @@ public class StableMatching implements StableMatchingInterface {
 
         int[] nextIndex = new int[n];
 
-        LinkedList<Integer> freeMen = new LinkedList<>();
+        LinkedList<Integer> celibs = new LinkedList<>();
         for(int k = 0; k < n; k++) {
-            freeMen.add(k);
+            celibs.add(k);
         }
 
         int[][] womenPrefsRankings = new int[n][n];
@@ -198,14 +146,14 @@ public class StableMatching implements StableMatchingInterface {
         }
 
         int i;
-        while (!freeMen.isEmpty()) {
-            i = freeMen.getFirst();
+        while (!celibs.isEmpty()) {
+            i = celibs.getFirst();
             int j = menPrefs[i][nextIndex[i]];
 
             if (womenGroupCount[j] > 0) {
                 womenGroupCount[j] = 0;
                 match[j] = i;
-                freeMen.poll();
+                celibs.poll();
                 res[i][j] = 1;
             } else {
                 int rival = match[j];
@@ -217,8 +165,8 @@ public class StableMatching implements StableMatchingInterface {
                     res[i][j] = 1;
                     res[rival][j] = 0;
                     match[j] = i;
-                    freeMen.poll();
-                    freeMen.add(rival);
+                    celibs.poll();
+                    celibs.add(rival);
                 } else {
                     nextIndex[i]++;
                 }
@@ -230,14 +178,7 @@ public class StableMatching implements StableMatchingInterface {
         return res;
     }
 
-    private int maxOfArray(int[] data) {
-        int ind = 0;
-        for(int j=0; j < data.length; j++)
-            if (data[j] > data[ind]) { ind = j; }
-        return ind;
-    }
-
-    private int minimum(int x,int y) {
+    private static int minimum(int x,int y) {
         if (x <= y) {
             return x;
         } else return y;
