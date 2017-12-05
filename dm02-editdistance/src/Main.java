@@ -55,18 +55,26 @@ class Main {
                     if (args[2].length() != 1)
                         throw new Exception ("Invalid replacement character");
                     c = args[2].charAt(0);
+                    if (command =='r') {
+                        System.out.print("Replace "+c);
+                    } else {
+                        System.out.print("Insert "+c);
+                    }
+                    System.out.println(" at: "+pos);
                 }
                 switch (command) {
                     case 'r':
                         s.setCharAt(pos, c);
                         break;
                     case 'd':
+                        System.out.println("Deleting char at: "+pos);
                         s.deleteCharAt(pos);
                         break;
                     case 'i':
                         s.insert(pos, c);
                         break;
                 }
+                System.out.println("New str: "+s);
             }
             catch (Exception e){
                 System.err.println("Parse exception: "+e.getMessage());
@@ -153,15 +161,17 @@ class Main {
 
         String s1 = "abcd";
         String s2 = "adcb";
-        test1(s1,s2);
-        test2(s1,s2);
+
+        //test1(s1,s2);
+
+        //test2(s1,s2);
         test3(s1,s2);
-        
-        test3(getRandomString(33), getRandomString(42));
-        
+
+        test3(getRandomString(10), getRandomString(14));
+        /*
         test3(getRandomString(33, "ab"), getRandomString(42, "ab"));
         
         test4();
-        
+        */
     }
 }
