@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/dm01-stablematching/dm01-stablematching.iml" filepath="$PROJECT_DIR$/dm01-stablematching/dm01-stablematching.iml" />
       <module fileurl="file://$PROJECT_DIR$/dm02-editdistance/dm02-editdistance.iml" filepath="$PROJECT_DIR$/dm02-editdistance/dm02-editdistance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dm03-spanningtree/dm03-spanningtree.iml" filepath="$PROJECT_DIR$/dm03-spanningtree/dm03-spanningtree.iml" />
     </modules>
   </component>
 </project>
