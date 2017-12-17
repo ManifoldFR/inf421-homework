@@ -35,8 +35,21 @@ public class SpanningTree {
     }
 
     public static Collection<Collection<Edge>> kruskal(EuclideanGraph g){
-    	// Q3
-    	return null;
+    	UnionFind u = new UnionFind();
+    	Collection<Edge> forest = kruskal(u, g);
+    	HashMap<Place,Collection<Edge>> edgeList = new HashMap<>();
+
+    	Collection<Edge> curComponent;
+        for(Edge e: forest) {
+            curComponent = edgeList.get(u.find(e.source));
+            if (curComponent == null) {
+                edgeList.put(u.find(e.source),
+                        new ArrayList<>(Arrays.asList(e)));
+            } else {
+                curComponent.add(e);
+            }
+        }
+    	return edgeList.values();
     }
     
     public static Collection<Edge> primTree(HashSet<Place> nonVisited, Place start, EuclideanGraph g){
