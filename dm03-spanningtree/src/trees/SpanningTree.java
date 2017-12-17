@@ -78,8 +78,27 @@ public class SpanningTree {
     }
     
     public static Collection<Collection<Edge>> primForest(EuclideanGraph g){
-    	// Q5
-    	return null;
+    	HashSet<Place> nonVisited = new HashSet<>(g.places());
+
+    	LinkedList<Collection<Edge>> result = new LinkedList<>();
+
+    	Place p;
+    	while (!nonVisited.isEmpty()) {
+    	    p = setPeek(nonVisited);
+    	    result.add(primTree(nonVisited, p, g));
+        }
+
+    	return result;
+    }
+
+    /**
+     * Auxiliary method to peek inside a HashSet without removing anything
+     * Not very elegant...
+     * @param placeHashSet
+     * @return the first element the iterator method on the HashSet can get
+     */
+    private static Place setPeek(HashSet<Place> placeHashSet) {
+        return placeHashSet.iterator().next();
     }
     
    
