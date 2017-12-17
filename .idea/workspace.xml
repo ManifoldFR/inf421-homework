@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06b24aff-530f-43c6-9f2b-032bc649a674" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/Test.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/fr.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/DrawingPane.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/GeoMap.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/JComboBox_$1.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/JComboBox_.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/PlaceParser.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/Visualisation$1.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/Visualisation$2.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/Visualisation$3.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/Visualisation$4.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/geomap/Visualisation.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/graph/Edge.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/graph/EdgeComparator.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/graph/EuclideanGraph.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/graph/Place.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/trees/SpanningTree.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/trees/UnionFind.class" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/dm03-spanningtree/src/Test.java" afterPath="$PROJECT_DIR$/dm03-spanningtree/src/Test.java" />
       <change beforePath="$PROJECT_DIR$/dm03-spanningtree/src/trees/SpanningTree.java" afterPath="$PROJECT_DIR$/dm03-spanningtree/src/trees/SpanningTree.java" />
       <change beforePath="$PROJECT_DIR$/dm03-spanningtree/src/trees/UnionFind.java" afterPath="$PROJECT_DIR$/dm03-spanningtree/src/trees/UnionFind.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/dm03-spanningtree/trees/SpanningTree.class" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/trees/SpanningTree.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/dm03-spanningtree/trees/UnionFind.class" afterPath="$PROJECT_DIR$/out/production/dm03-spanningtree/trees/UnionFind.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,11 +37,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="UnionFind.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UnionFind.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dm03-spanningtree/src/trees/UnionFind.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+            <state relative-caret-position="208">
+              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,7 +60,7 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dm03-spanningtree/src/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
+            <state relative-caret-position="-86">
               <caret line="178" column="8" lean-forward="true" selection-start-line="178" selection-start-column="8" selection-end-line="178" selection-end-column="8" />
               <folding />
             </state>
@@ -76,8 +70,8 @@
       <file leaf-file-name="SpanningTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dm03-spanningtree/src/trees/SpanningTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="10" column="49" lean-forward="false" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+            <state relative-caret-position="336">
+              <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -130,6 +124,7 @@
         <option value="$PROJECT_DIR$/dm03-spanningtree/src/Test.java" />
         <option value="$PROJECT_DIR$/dm03-spanningtree/src/trees/SpanningTree.java" />
         <option value="$PROJECT_DIR$/dm03-spanningtree/src/trees/UnionFind.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -146,7 +141,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -475,7 +470,7 @@
       <workItem from="1512375937429" duration="5530000" />
       <workItem from="1513446028029" duration="320000" />
       <workItem from="1513446406760" duration="405000" />
-      <workItem from="1513447056189" duration="11690000" />
+      <workItem from="1513447056189" duration="12618000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1510508625531</created>
@@ -516,10 +511,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120488000" />
+    <option name="totallyTimeSpent" value="121416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="893" y="0" width="934" height="1057" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -530,8 +526,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43213898" sideWeight="0.50988144" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.49557522" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35070574" sideWeight="0.49011856" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35070574" sideWeight="0.49011856" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23798627" sideWeight="0.49429038" order="0" side_tool="false" content_ui="combo" />
@@ -681,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dm02-editdistance/src/EditDistance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -735,7 +724,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dm03-spanningtree/src/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
+        <state relative-caret-position="-86">
           <caret line="178" column="8" lean-forward="true" selection-start-line="178" selection-start-column="8" selection-end-line="178" selection-end-column="8" />
           <folding />
         </state>
@@ -743,16 +732,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dm03-spanningtree/src/trees/SpanningTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="10" column="49" lean-forward="false" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+        <state relative-caret-position="336">
+          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dm03-spanningtree/src/trees/UnionFind.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        <state relative-caret-position="208">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -11,8 +11,10 @@ public class UnionFind {
 	//parent relation, parent.put(src,dst) indicates that src points to dst
     private HashMap<Place,Place> parent;
     private LinkedHashMap<Place,Integer> rank;
+
     //maximum acceptable distance to root element
-    private int MAX_DIST = 3;
+    //we pick the very conservative value of 5
+    private int MAX_DIST = 5;
     //ranking of representatives
     
     public UnionFind( ){

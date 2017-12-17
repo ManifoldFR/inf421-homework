@@ -7,17 +7,22 @@ import graph.*;
 public class SpanningTree {
     
     public static Collection<Edge> kruskal(UnionFind u, EuclideanGraph g){
-    	List<Edge> edges = g.getAllEdges();
+        //we cast the Edges list to an ArrayList
+        //to guarantee constant-time access by index
+    	ArrayList<Edge> edges = new ArrayList<>(g.getAllEdges());
         EdgeComparator ac = new EdgeComparator();
         Collections.sort(edges,ac);
 
-        LinkedList<Edge> forest = new LinkedList<>();
+        ArrayList<Edge> forest = new ArrayList<>();
 
-        //we go through the edges in g, as they're already sorted in order
+        //we go through the edges in g, as they're already sorted in increasing order
         Place beg, end;
+        Edge curEdge;
         for(int i=0; i<edges.size(); i++) {
-            beg = edges.get(i).source;
-            end = edges.get(i).target;
+            //the edges.get operation is done in O(1) time
+            curEdge = edges.get(i);
+            beg = curEdge.source;
+            end = curEdge.target;
 
             //now check if the beginning and end are currently in the same connected component
             if (u.find(beg) != u.find(end)) {
