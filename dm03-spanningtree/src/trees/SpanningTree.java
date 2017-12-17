@@ -53,8 +53,28 @@ public class SpanningTree {
     }
     
     public static Collection<Edge> primTree(HashSet<Place> nonVisited, Place start, EuclideanGraph g){
-    	// Q4
-    	return null;
+        EdgeComparator ac = new EdgeComparator();
+    	PriorityQueue<Edge> q = new PriorityQueue<>(ac);
+    	q.addAll(g.edgesOut(start));
+    	nonVisited.remove(start);
+
+    	//since q is a priority queue we have to exhaust, we'll keep the values we go through in a Collection<Edge> called result
+    	LinkedList<Edge> result = new LinkedList<>();
+
+    	Edge a;
+    	Place u;
+    	while (!q.isEmpty()) {
+    	    a = q.poll();
+    	    u = a.target;
+    	    if (nonVisited.contains(u)) {
+    	        //if we haven't visited u yet, then we can add the ingoing Edge a to our result
+    	        result.add(a);
+    	        q.addAll(g.edgesOut(u));
+    	        nonVisited.remove(u);
+            }
+        }
+
+    	return result;
     }
     
     public static Collection<Collection<Edge>> primForest(EuclideanGraph g){
